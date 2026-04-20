@@ -24,3 +24,19 @@
 ## Создание структуры проекта
 - **Создать директорию проекта**
 - `mkdir -p ~/devopspet && cd ~/devopspet`
+- `cat > ~/devopspet/app/package.json << 'EOF'` создаем и заполняем [package.json](https://github.com/nyuhno/DevOps-trainig/blob/main/package.json)
+- `cat ~/devopspet/app/package.json` - проверка
+- `touch app/server.js` - создаем и заполняем через nano [server.js](https://github.com/nyuhno/DevOps-trainig/blob/main/server.js)
+- `touch app/Dockerfile` - создаем и заполняем через nano [Dockerfile](https://github.com/nyuhno/DevOps-trainig/blob/main/Dockerfile)
+- `touch nginx/nginx.conf` - создаем и заполняем через nano [nginx.conf](https://github.com/nyuhno/DevOps-trainig/blob/main/nginx.conf)
+- `tree ~/devopspet` - проверяем структуру с помощью визуализации
+- `docker compose up -d` - поехали
+  - приехали npm ci требует наличия файла package-lock.json, чиним
+  - `sudo apt install npm`
+  - `npm install` в папке app
+  - `ls -la` - проверка глазами
+- `docker compose up -d` - поехали-2
+- `docker compose ps` - проверяем статус контейнеров
+- `docker compose logs --tail=20` - проверяем логи
+- `curl http://localhost` - проверяем локально
+- `http://194.113.34.78` - проверяем извне. страшненький но работает.
