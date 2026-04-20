@@ -1,0 +1,26 @@
+## Развернуть Docker и Docker Composer, развернуть внутри приложение, бд(если влезет в VPS), настроить сетевые соединения и тд.**
+- **Установка Docker и Docker Compose**
+- **Подготовка системы**
+- `sudo apt update` - обновляем список пакетов
+- `sudo apt install -y ca-certificates curl gnupg lsb-release` - установка пакетов указанных в документации и нужных для дальнейшей работы
+- **Добавление официального репозитория Docker**
+- `sudo mkdir -p /etc/apt/keyrings` - создаем директорию для хранения GPG-ключей
+- `ls -la /etc/apt/keyrings/` - проверка
+- `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg` - скачиваем файл ключа, конвертируем и пишем в docker.gpg
+- `echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list` - добавляем официальный репозиторий
+- `cat /etc/apt/sources.list.d/docker.list` - проверка
+- **Установка Docker Engine и Docker Compose Plugin**
+- `sudo apt update` - всегда обновляем индексы перед установкой чего либо, а так же убеждаемся что в списке есть новые репозитории docker
+- `sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin` - устанавливаем Docker Engine + клиент + containerd(раннер) + docker buildx(мультипланформеность + фишки) + docker compose(мультконтейнерость)
+- `sudo usermod -aG docker $USER` - добавляем пользователя в группу docker
+- `getent group docker` - проверка
+- `exec su -l $USER` - перезапускаем сессию
+- **Проверка**
+- `docker --version`
+- `docker compose version`
+- `sudo systemctl status docker --no-pager`
+- `docker run hello-world` - тестовый контейнер
+- `docker info` - сводная информация
+## Создание структуры проекта
+- **Создать директорию проекта**
+- `mkdir -p ~/devopspet && cd ~/devopspet`
