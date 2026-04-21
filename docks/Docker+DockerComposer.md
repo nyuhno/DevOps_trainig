@@ -24,7 +24,7 @@
 ## Создание структуры проекта
 - **Создать директорию проекта**
 - `mkdir -p ~/devopspet && cd ~/devopspet`
-- `cat > ~/devopspet/app/package.json << 'EOF'` создаем и заполняем [package.json](https://github.com/nyuhno/DevOps-trainig/blob/main/package.json)
+- `cat > ~/devopspet/app/package.json << 'EOF'` создаем и заполняем [package.json](https://github.com/nyuhno/DevOps-trainig/blob/main/app/package.json)
 - `cat ~/devopspet/app/package.json` - проверка
 - `touch app/server.js` - создаем и заполняем через nano [server.js](https://github.com/nyuhno/DevOps-trainig/blob/main/app/src/server.js)
 - `touch app/Dockerfile` - создаем и заполняем через nano [Dockerfile](https://github.com/nyuhno/DevOps-trainig/blob/main/app/Dockerfile)
